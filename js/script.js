@@ -6,3 +6,27 @@
 // Pensate prima in italiano.
 // Dividete in piccoli problemi la consegna.
 // Individuate gli elementi di cui avete bisogno per realizzare il programma.
+//1b) richiamo la funzione creata all'interno dell'alert
+var diffEasy = 5;
+var maxRandNum = 100;
+var minRandNum = 1;
+
+alert(randomNumbers(diffEasy, maxRandNum, minRandNum));
+
+//********* functions */
+//1a) creo una funzione che ritorni 5 numeri random (array)
+function randomNumbers (diff, max, min){
+    var arrRandNums = [];
+
+    while(arrRandNums.length < diff){
+
+        var randNum = Math.floor(Math.random() * (max - min)) + min;
+
+        if(!arrRandNums.includes(randNum)){
+            arrRandNums.push(randNum);
+        }
+    }
+
+    return arrRandNums;
+}
+
