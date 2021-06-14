@@ -11,7 +11,30 @@ var diffEasy = 5;
 var maxRandNum = 100;
 var minRandNum = 1;
 
-alert(randomNumbers(diffEasy, maxRandNum, minRandNum));
+var arrRandomNums = randomNumbers(diffEasy, maxRandNum, minRandNum);
+
+alert(arrRandomNums);
+
+//2b) richiamo la funzione creata e fisso il timer di 30 secondi
+setTimeout(function userGuessNums(){
+    var guessedNums = [];
+
+    for (var i = 0; i < diffEasy; i++){
+    
+        var userGuess = parseInt(prompt('inserisci i numeri che ricordi'));
+
+        if(!guessedNums.includes(userGuess) && arrRandomNums.includes(userGuess)){
+            guessedNums.push(userGuess);
+        }
+    }
+
+    if(!guessedNums.length){
+        alert('Non hai ricordato neanche un numero!')
+    } else{
+        alert ('hai indovinato ' + guessedNums.length + ' numeri! Sono: ' + guessedNums);
+    }
+    
+}, 30000);
 
 //********* functions */
 //1a) creo una funzione che ritorni 5 numeri random (array)
@@ -30,3 +53,18 @@ function randomNumbers (diff, max, min){
     return arrRandNums;
 }
 
+//2a) creo la funzione per chiedere all'utente i 5 numeri
+function userGuessNums(arrRandom, diff){
+    var guessedNums = [];
+
+    for (var i = 0; i < diff; i++){
+    
+        var userGuess = parseInt(prompt('inserisci i numeri che ricordi'));
+
+        if(!guessedNums.includes(userGuess) && arrRandom.includes(userGuess)){
+            guessedNums.push(userGuess);
+        }
+    }
+
+    return guessedNums;
+}
